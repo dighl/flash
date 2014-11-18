@@ -85,21 +85,23 @@ function flashcard(direction) {
   var txt = '';
   txt += '<div class="popup_background">';
   txt += ''
+
+    + '<div class="flashcard flx">'
+    + '  <div onclick="flashcard(\''+newd+'\')" class="item border"><span>TURN</span></div>'
+    + '  <div class="innerflashcard">'
     + '<div class="breaker flx"><span>'
     + gone + ' of ' + FLASH.length + ' have been tested ('
     + togo + ' items to go)'
     + '</span>'
     + '</div>'
-    + '<div class="flashcard flx">'
-    + '  <div onclick="flashcard(\''+newd+'\')" class="item border"><span>TURN</span></div>'
-    + '  <div class="innerflashcard">'
     + '    <div class="horizontal" onclick="storeRight();"><span>RIGHT</span></div>'
     + '    <div class="item"><span>'+contentA+'</span></div>'
     + '    <div class="horizontal" onclick="storeWrong();"><span>WRONG</span></div>'
+    + '<div class="breaker flx" onclick="breakFlash();"><span>STOP</span></div>'
     + '  </div>'
     + '  <div onclick="flashcard(\''+newd+'\')" class="item border"><span>TURN</span></div>'
     + '</div>'
-    + '<div class="breaker flx" onclick="breakFlash();"><span>STOP</span></div>'
+
     + '</div>';
   flashy.innerHTML = txt;
 }
