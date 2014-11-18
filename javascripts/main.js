@@ -10,10 +10,20 @@ var CFG = {};
 function activateFlashes(){
   var topics = document.getElementById('topics');
   var txt = '';
+  var tnm = '';
   for (var i=0,m; m=META[i]; i++) {
-    txt += '<li><button onclick="setFlash(\''+m+'\');">'+m.replace(/_/g,' ')+'</button></li>';
+    var nm = m.replace(/_/g,' ');
+    var nmab = nm.split('/');
+    var nma = nmab[0];
+    var nmb = nmab[1].replace(/\.tsv/,'');
+    var nmid = m.replace(/\//g,'_').replace(/\.tsv/,'');
+    if(tnm != nma) {
+      txt += '<h3>'+nma+'</h3>';
+    }
+    tnm = nma;
+    txt += '<p><div onclick="setFlash(\''+m+'\');" id="'+nmid+'" class="clickit"><span >'+nmb+'</span></div></p>';
   }
-  topics.innerHTML = '<ul>'+txt+'</ul>';
+  topics.innerHTML = txt;
 }
 
 function setFlash(flash){
@@ -47,7 +57,11 @@ function setFlash(flash){
         }    
   });
 
-  //FLASH = shuffle(FLASH);
+  var nmid = flash.replace(/\//g,'_').replace(/\.tsv/,'');
+  console.log(nmid);
+  document.getElementById(nmid).style.backgroundColor="Crimson";
+
+  FLASH = shuffle(FLASH);
   CFG['current'] = 0;
   CFG['correct'] = [];
   CFG['wrong'] = [];
@@ -87,7 +101,7 @@ function flashcard(direction) {
   txt += ''
 
     + '<div class="flashcard flx">'
-    + '  <div onclick="flashcard(\''+newd+'\')" class="item border"><span>TURN</span></div>'
+    + '  <div onclick="flashcard(\''+newd+'\')" class="border"><span>TURN</span></div>'
     + '  <div class="innerflashcard">'
     + '<div class="breakerx flx"><span>'
     + gone + ' of ' + FLASH.length + ' have been tested ('
@@ -99,7 +113,7 @@ function flashcard(direction) {
     + '    <div class="horizontal" onclick="storeWrong();"><span>WRONG</span></div>'
     + '<div class="breaker flx" onclick="breakFlash();"><span>STOP</span></div>'
     + '  </div>'
-    + '  <div onclick="flashcard(\''+newd+'\')" class="item border"><span>TURN</span></div>'
+    + '  <div onclick="flashcard(\''+newd+'\')" class="border"><span>TURN</span></div>'
     + '</div>'
 
     + '</div>';
