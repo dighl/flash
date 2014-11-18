@@ -81,3 +81,12 @@
   margin: 20px;
   width: 60%;
 }
+
+media screen and (max-width: 480px) and (orientation: portrait){
+
+    html { 
+        max-width: 480px;
+    }
+
+
+}
