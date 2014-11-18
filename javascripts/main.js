@@ -89,7 +89,7 @@ function flashcard(direction) {
     + '<div class="flashcard flx">'
     + '  <div onclick="flashcard(\''+newd+'\')" class="item border"><span>TURN</span></div>'
     + '  <div class="innerflashcard">'
-    + '<div class="breaker flx"><span>'
+    + '<div class="breakerx flx"><span>'
     + gone + ' of ' + FLASH.length + ' have been tested ('
     + togo + ' items to go)'
     + '</span>'
