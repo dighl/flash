@@ -1,9 +1,6 @@
 
 
-var META = [
-  "Bildung/Lernen.tsv",
-  "Gesundheit_und_Koerperpflege/Koerperpflege.tsv"
-];
+
 var FLASH = [['mattis','sittam']];
 var CFG = {};
 
@@ -65,6 +62,7 @@ function setFlash(flash){
   CFG['current'] = 0;
   CFG['correct'] = [];
   CFG['wrong'] = [];
+  CFG['direction'] = 'a';
   console.log('flashlength',FLASH.length);
 }
 
@@ -101,19 +99,21 @@ function flashcard(direction) {
   txt += ''
 
     + '<div class="flashcard flx">'
-    + '  <div onclick="flashcard(\''+newd+'\')" class="border"><span>TURN</span></div>'
+    //+ '  <div onclick="flashcard(\''+newd+'\')" class="border"><span>TURN</span></div>'
+    + '    <div class="border wrong" onclick="storeWrong();"><span>wrong</span></div>'   
     + '  <div class="innerflashcard">'
     + '<div class="breakerx flx"><span>'
-    + gone + ' of ' + FLASH.length + ' have been tested ('
-    + togo + ' items to go)'
+    + gone + '/' + FLASH.length + ' ('
+    + togo + ' left)'
     + '</span>'
     + '</div>'
-    + '    <div class="horizontal" onclick="storeRight();"><span>RIGHT</span></div>'
-    + '    <div class="item"><span>'+contentA+'</span></div>'
-    + '    <div class="horizontal" onclick="storeWrong();"><span>WRONG</span></div>'
+    //+ '    <div class="horizontal" onclick="storeRight();"><span>RIGHT</span></div>'
+    + '    <div class="item" onclick="flashcard(\''+newd+'\')"><span>'+contentA+'</span></div>'
+    //+ '    <div class="horizontal" onclick="storeWrong();"><span>WRONG</span></div>'  
     + '<div class="breaker flx" onclick="breakFlash();"><span>STOP</span></div>'
     + '  </div>'
-    + '  <div onclick="flashcard(\''+newd+'\')" class="border"><span>TURN</span></div>'
+    + '    <div class="border right" onclick="storeRight();"><span>right</span></div>'
+    //+ '  <div onclick="flashcard(\''+newd+'\')" class="border"><span>TURN</span></div>'
     + '</div>'
 
     + '</div>';
@@ -125,7 +125,7 @@ function storeRight() {
   if (current < FLASH.length-1) {
     CFG['current'] = current + 1;
     CFG['correct'].push(FLASH[current]);
-    flashcard('a');
+    flashcard(CFG['direction']);
   }
   else {
     breakFlash();
@@ -137,7 +137,7 @@ function storeWrong() {
   if (current < FLASH.length-1) {
     CFG['current'] = current + 1;
     CFG['wrong'].push(FLASH[current]);
-    flashcard('a');
+    flashcard(CFG['direction']);
   }
   else {
     breakFlash();

@@ -45,11 +45,11 @@
     flex-direction: column;
     justify-content: stretch;
     align-items: left;
-    width: 60%;
+    width: 65%;
     height: 100%;
   }
   .item {
-    min-height: 60%;
+    min-height: 65%;
     vertical-align: center;
     margin-top: 20px;
   }
@@ -75,17 +75,157 @@
   }
   
   .breaker {
-    background-color: Blue;
+    background-color: Gray;
     color: white;
     width: 100%;
     height: 20%;
     z-index:20;
     cursor: pointer;
     vertical-align: center;
-
+  }
+  .breaker span {
+    color: white;
   }
   .breakerx {
-    background-color: Blue;
+    background-color: LightGray;
+    color: white;
+    width: 100%;
+    height: 15%;
+    z-index:20;
+    cursor: pointer;
+    font-size: 80%;
+    vertical-align: center;
+  }
+
+  
+  .breaker span {
+    font-weight: bold;
+  }
+  .item span {
+    font-size: 30px!important;
+  }
+
+  
+  .flashcard td {
+    color: black;
+  }
+  .flashcard table {
+    border: 2px solid gray;
+    padding: 20px;
+    margin: 20px;
+    width: 60%;
+  }
+  .flashcard th {
+    color: black;
+    text-align: left;
+  }
+  p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+.right {
+  background-color: DarkGreen;
+}
+.wrong {
+  background-color: Crimson;
+}
+
+@media screen and (max-width: 480px) and (orientation: portrait){
+
+  html { 
+      max-width: 480px;
+  }
+  .popup_background{
+  	position: fixed;
+  	z-index: 2;
+  	top:0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+  	width: 100%;
+  	height: 100%;
+  	float: left;
+  	text-align:center;
+    background-color:black;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  button {
+    height: 30px;
+    font-size: 20px;
+  }
+  .clickit {
+    background-color: lightgray;
+    border: 2px solid black;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .flashcard {
+    z-index: 100;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: 100%;
+    color:white;
+    background-color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+  
+  }
+  .innerflashcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: left;
+    width: 60%;
+    height: 100%;
+  }
+  .item {
+    min-height: 65%;
+    vertical-align: center;
+    margin-top: 20px;
+  }
+  .flashcard span {
+    z-index: 100;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .border {
+    color: black;
+    background-color: green;
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+  }
+  .horizontal {
+    width: 100%;
+    height: 20%;
+    color: black;
+    background-color: Crimson;
+    cursor: pointer;
+  }
+  
+  .breaker {
+    background-color: Gray;
+    color: white;
+    width: 100%;
+    height: 20%;
+    z-index:20;
+    cursor: pointer;
+    vertical-align: center;
+  }
+  .breaker span {
+    color: white;
+  }
+  .breakerx {
+    background-color: LightGray;
     color: white;
     width: 100%;
     height: 15%;
@@ -121,112 +261,10 @@
     font-weight: bold;
   }
 
-
-@media screen and (max-width: 480px) and (orientation: portrait){
-
-  html { 
-      max-width: 480px;
-  }
-  .popup_background{
-  	position: fixed;
-  	z-index: 2;
-  	top:0;
-  	left: 0;
-  	right: 0;
-  	bottom: 0;
-  	width: 100%;
-  	height: 100%;
-  	float: left;
-  	text-align:center;
-    background-color:black;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-  }
-  
-  .flashcard {
-    z-index: 100;
-    left: auto;
-    right: auto;
-    width: 100%;
-    height: 100%;
-    color:white;
-    background-color:white;
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    align-items: center;
-  
-  }
-  .innerflashcard {
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: left;
-    width: 60%;
-    height: 100%;
-  }
-  .item {
-    min-height: 60%;
-    vertical-align: center;
-    margin-top: 20px;
-  }
-  .item span {
-    font-size: 30px!important;
-  }
-  .flashcard span {
-    z-index: 100;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .border {
-    color: black;
-    background-color: green;
-    height: 100%;
-    width: 20%;
-    cursor: pointer;
-  }
-  .horizontal {
-    width: 100%;
-    height: 20%;
-    color: black;
-    background-color: Crimson;
-    cursor: pointer;
-  }
-  
-  .breaker {
-    background-color: Blue;
-    color: white;
-    width: 100%;
-    height: 20%;
-    z-index:20;
-    cursor: pointer;
-    vertical-align: center;
-
-  }
-  .breakerx {
-    background-color: Blue;
-    color: white;
-    width: 100%;
-    height: 15%;
-    z-index:20;
-    cursor: pointer;
-    font-size: 80%;
-  }
-
-  
-  .breaker span {
-    font-weight: bold;
-  }
-  
-  .flashcard td {
-    color: black;
-  }
-  .flashcard table {
-    border: 2px solid gray;
-    padding: 20px;
-    margin: 20px;
-    width: 60%;
-  }
+.right {
+  background-color: DarkGreen;
+}
+.wrong {
+  background-color: Crimson;
+}
 }
